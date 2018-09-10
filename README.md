@@ -46,3 +46,13 @@ and releases are announced via our [news feed](http://spring.io/blog/category/ne
 
 The Spring Framework is released under version 2.0 of the
 [Apache License](http://www.apache.org/licenses/LICENSE-2.0).
+
+windows build error
+---
+${spring_home}/gradle/docs.gradle
+
+https://stackoverflow.com/questions/34916981/build-spring-framework-source-code-encounter-an-error
+
+syncing a fork
+---
+https://help.github.com/articles/syncing-a-fork/

@@ -64,14 +64,15 @@ configure(allprojects) { project ->
 	apply plugin: "test-source-set-dependencies"
 	apply plugin: "io.spring.dependency-management"
 	apply from: "${gradleScriptDir}/ide.gradle"
+	apply plugin: "maven"
 
 	dependencyManagement {
 		resolutionStrategy {
 			cacheChangingModulesFor 0, "seconds"
 		}
-		applyMavenExclusions = false
+		applyMavenExclusions = true
 		generatedPomCustomization {
-			enabled = false
+			enabled = true
 		}
 	}
 
@@ -147,6 +148,8 @@ configure(allprojects) { project ->
 	}
 
 	repositories {
+		mavenLocal()
+		//maven { url 'file://' + new File(System.getProperty('user.home'), '.m2/repository').absolutePath}
 		maven { url "https://repo.spring.io/libs-release" }
 		maven { url "https://repo.spring.io/milestone" }  // for Reactor
 	}
