@@ -106,12 +106,13 @@ public class PropertyPlaceholderHelperTests {
 
 	@Test(expected = IllegalArgumentException.class)
 	public void testUnresolvedPlaceholderAsError() {
-		String text = "foo=${foo},bar=${bar}";
+		String text = "foo=${foo-${bar}}";
 		Properties props = new Properties();
 		props.setProperty("foo", "bar");
+		props.setProperty("for-bar","foo-bar-value");
 
 		PropertyPlaceholderHelper helper = new PropertyPlaceholderHelper("${", "}", null, false);
-		assertEquals("foo=bar,bar=${bar}", helper.replacePlaceholders(text, props));
+		assertEquals("foo-bar-value", helper.replacePlaceholders(text, props));
 	}
 
 }

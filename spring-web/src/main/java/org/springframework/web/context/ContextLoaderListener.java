@@ -16,6 +16,9 @@
 
 package org.springframework.web.context;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
@@ -36,6 +39,7 @@ import javax.servlet.ServletContextListener;
  */
 public class ContextLoaderListener extends ContextLoader implements ServletContextListener {
 
+	private static Logger logger = LoggerFactory.getLogger("LIFECYCLE");
 	/**
 	 * Create a new {@code ContextLoaderListener} that will create a web application
 	 * context based on the "contextClass" and "contextConfigLocation" servlet
@@ -100,12 +104,13 @@ public class ContextLoaderListener extends ContextLoader implements ServletConte
 	 */
 	@Override
 	public void contextInitialized(ServletContextEvent event) {
+		logger.info("{}-{}",this.getClass().getName(),"contextInitialized");
 		initWebApplicationContext(event.getServletContext());
 	}
 
 
 	/**
-	 * Close the root web application context.
+	 * Close the root web application context.PropertyPlaceholderHelper
 	 */
 	@Override
 	public void contextDestroyed(ServletContextEvent event) {

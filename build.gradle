@@ -64,6 +64,7 @@ configure(allprojects) { project ->
 	apply plugin: "test-source-set-dependencies"
 	apply plugin: "io.spring.dependency-management"
 	apply from: "${gradleScriptDir}/ide.gradle"
+	//add maven plugin
 	apply plugin: "maven"
 
 	dependencyManagement {

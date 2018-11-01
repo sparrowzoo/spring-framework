@@ -109,6 +109,7 @@ public class PropertyPlaceholderHelper {
 	 */
 	public String replacePlaceholders(String value, final Properties properties) {
 		Assert.notNull(properties, "'properties' must not be null");
+		//@harry transfer 2 parameters. the first is this object;the second is method
 		return replacePlaceholders(value, properties::getProperty);
 	}
 
@@ -117,6 +118,7 @@ public class PropertyPlaceholderHelper {
 	 * from the supplied {@link PlaceholderResolver}.
 	 * @param value the value containing the placeholders to be replaced
 	 * @param placeholderResolver the {@code PlaceholderResolver} to use for replacement
+	 * @harry placeholderResolver equal properties.getProperty()
 	 * @return the supplied value with placeholders replaced inline
 	 */
 	public String replacePlaceholders(String value, PlaceholderResolver placeholderResolver) {

@@ -34,6 +34,11 @@ There are also [guides and tutorials](https://spring.io/guides) across Spring pr
 See the [Build from Source](https://github.com/spring-projects/spring-framework/wiki/Build-from-Source)
 wiki page and also [CONTRIBUTING.md](CONTRIBUTING.md).
 
+To install all Spring Framework jars into your local Maven cache (note that "-x" skips Javadoc generation):
+```
+./gradlew install -x javadoc
+```
+
 ## Stay in Touch
 
 Follow [@SpringCentral](https://twitter.com/springcentral),
